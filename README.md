@@ -2,141 +2,50 @@
 
 ## Deployed Link
 
-[**Here lies the application**](https://task-master-collate.herokuapp.com/tasks)
+[**HERE LIES THE APPLICATION**](https://task-master-collate.herokuapp.com/tasks)
 
 ---
 
 ### Description:
 
-This is an application that was built as the selection task for [_Collate_](https://collate.co.in/). It is an application that tracks your progress for the corresponding tasks that you have created in it. The
+This is a **MERN-Stack Web-Application** deployed on **Heroku**. It was built as the selection task for [_Collate_](https://collate.co.in/). It is an application that tracks your progress for the corresponding tasks that you have created in it. The application has user authentication. There is a visualised display of the progress of each task. Each task has a _Title, Content, Progress, CreatedAt, EditedAt_.
+There a fuly functioning CRUD for the notes.
 
 ---
 
-### **2. /api/notes/getAll => GET Route**
+### Dependencies Used:
 
-**_Response JSON:_**
-
-```
-{
-   "status": "OK" or "ERROR",
-   "error": <Error Message if any>
-   "data": [
-	   {
-	      "id":<Note ID>,
-	      "author":"<Username>",
-	      "title":"<Title of the Note>",
-	      "content":"<Content of the Note>",
-	      "create_time":"<Note Create Time in httpDate Format>",
-	      "edited":<Edit Status: 0 for unedited Note, 1 for edited Note>,
-	      "update_time":"<Note Edit Time in httpDate Format>"
-           },
-	   <Other Notes also>
-   ]
-}
-```
-
-**_Status Codes and Errors:_**
-|Status Codes|Error Message|Reason|
-|--|--|--|
-|200|-|No Error.|
-|404|No Notes Found.|User has no Notes.|
-|500|Internal Server Error.|Some server-side error has occurred.|
+| Dependency Name        | Stack-End |
+| ---------------------- | --------- |
+| bcyptjs                | Back-End  |
+| body-parser            | Back-End  |
+| cors                   | Back-End  |
+| dotenv                 | Back-End  |
+| express                | Back-End  |
+| jsonwebtoken           | Back-End  |
+|                        |           |
+| axios                  | Front-End |
+| bootstrap              | Front-End |
+| formik                 | Front-End |
+| react-icons-kit        | Front-End |
+| react-redux            | Front-End |
+| react-router-dom       | Front-End |
+| react-transition-group | Front-End |
+| reactstrap             | Front-End |
+| redux                  | Front-End |
+| redux-thunk            | Front-End |
+| yup                    | Front-End |
 
 ---
 
-### **3. /api/notes/get?id=[Note ID] => GET Route**
+### Prospects:
 
-**_Query Parameters:_**
-|Query Parameter|Description|
-|--|--|
-|**id**|The specific Note ID|
-**_Response JSON:_**
+- Animations
+- Show Password
+- Google ReCaptcha
+- Better data visualisation
+- Sorting data on different criteria
 
-```
-{
-   "status": "OK" or "ERROR",
-   "error": <Error Message if any>
-   "data": {
-	      "id":<Note ID>,
-	      "author":"<Username>",
-	      "title":"<Title of the Note>",
-	      "content":"<Content of the Note>",
-	      "create_time":"<Note Create Time in httpDate Format>",
-	      "edited":<Edit Status: 0 for unedited Note, 1 for edited Note>,
-	      "update_time":"<Note Edit Time in httpDate Format>"
-           }
-}
-```
+## Project Contributors:
 
-**_Status Codes and Errors:_**
-|Status Codes|Error Message|Reason|
-|--|--|--|
-|200|-|No Error.|
-|404|No Notes Found.|Note with the specified ID not found.|
-|500|Internal Server Error.|Some server-side error has occurred.|
-
----
-
-### **4. /api/notes/update => POST Route**
-
-**_Parameters:_**
-|Parameter Name|Required|Type|
-|--|--|--|
-|**id**|Yes|String|
-|**title**|Yes|String|
-|**content**|Yes|String|
-**_Response JSON:_**
-
-```
-{
-   "status": "OK" or "ERROR",
-   "error": <Error Message if any>
-}
-```
-
-**_Status Codes and Errors:_**
-|Status Codes|Error Message|Reason|
-|--|--|--|
-|200|-|No Error.|
-|400|Bad Request. Invalid Parameters.|Either the _id_, _title_ or _content_ fields are empty|
-|404|No Notes Found.|User does not have a note with that ID.|
-|500|Internal Server Error.|Some server-side error has occurred.|
-
----
-
-### **5. /api/notes/delete => POST Route**
-
-**_Parameters:_**
-|Parameter Name|Required|Type|
-|--|--|--|
-|**id**|Yes|String|
-**_Response JSON:_**
-
-```
-{
-   "status": "OK" or "ERROR",
-   "error": <Error Message if any>
-}
-```
-
-**_Status Codes and Errors:_**
-|Status Codes|Error Message|Reason|
-|--|--|--|
-|200|-|No Error.|
-|400|Note ID Missing.|The _id_ field is empty|
-|404|No Notes Found.|User does not have a note with that ID.|
-|500|Internal Server Error.|Some server-side error has occurred.|
-
----
-
-## Technology Stack Used:
-
-- Amazon RDS MySQL
-- Heroku
-- Express
-- Node
-
-# Project Contributors:
-
-- [**Gita Alekhya Paul**](https://github.com/gitaalekhyapaul)  
-  **If you like what you have seen, kindly star the repository!**
+- [**Yashvardhan Jagnani**](https://github.com/jagnani73)
