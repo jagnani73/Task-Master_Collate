@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Icon } from "react-icons-kit";
+import { plusSquare } from "react-icons-kit/fa/plusSquare";
 import {
   Button,
   Jumbotron,
@@ -15,6 +17,20 @@ const Task = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
+  let progressColor = null;
+  if (props.progress >= 0 && props.progress < 20) {
+    progressColor = "danger";
+  } else if (props.progress >= 20 && props.progress < 40) {
+    progressColor = "warning";
+  } else if (props.progress >= 40 && props.progress < 60) {
+    progressColor = "info";
+  } else if (props.progress >= 60 && props.progress < 80) {
+    progressColor = null;
+  } else if (props.progress >= 80 && props.progress < 100) {
+    progressColor = "success";
+  }
+
   return (
     <React.Fragment>
       <Jumbotron className={classes.Task}>
@@ -23,14 +39,14 @@ const Task = (props) => {
             <h5 className={classes.TaskTitle}>{props.title}</h5>
           </div>
           <div className="text-right col-6">
-            <Button color="primary" onClick={toggle}>
-              Toggle
+            <Button color="primary" outline onClick={toggle}>
+              <Icon icon={plusSquare} size={28} />
             </Button>
           </div>
         </div>
         <Collapse isOpen={isOpen}>
           <Card>
-            <CardTitle className="mt-4">Description</CardTitle>
+            <h5 className="mt-4">Description</h5>
             <hr className="col-6 mx-auto" />
             <CardBody className={classes.TaskContent + " col-12 text-center"}>
               {props.content}
@@ -41,7 +57,11 @@ const Task = (props) => {
                   <p>COMPLETED</p>
                 ) : (
                   <React.Fragment>
-                    <Progress value={props.progress} className={"mx-3"} />
+                    <Progress
+                      value={props.progress}
+                      className={"mx-3"}
+                      color={progressColor}
+                    />
                     <p>{props.progress} %</p>
                   </React.Fragment>
                 )}

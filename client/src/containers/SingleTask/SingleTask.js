@@ -5,13 +5,10 @@ import classes from "./SingleTask.module.css";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import * as actions from "../../store/actions/index";
 import SingleTaskForm from "../../components/SingleTaskForm/SingleTaskForm";
+import Jumbotron from "../../components/UI/Jumbotron/Jumbotron";
 
 class SingleTask extends Component {
   componentWillMount() {
-    console.log(
-      "[SingleTask.js]ComponentWillMount",
-      this.props.match.params.id
-    );
     this.props.onFetchTask(this.props.match.params.id);
   }
 
@@ -20,20 +17,20 @@ class SingleTask extends Component {
   }
 
   render() {
-    console.log(this.props.match.params.id, "SingleTask.js");
-
     let taskLoader = <Spinner />;
     if (!this.props.loading) {
       taskLoader = (
         <React.Fragment>
-          <SingleTaskForm
-            initialTitle={this.props.task.title}
-            initialContent={this.props.task.content}
-            initialProgress={this.props.task.progress}
-            onSubmitForm={(values) =>
-              this.props.onSaveChanges(this.props.match.params.id, values)
-            }
-          />
+          <Jumbotron>
+            <SingleTaskForm
+              initialTitle={this.props.task.title}
+              initialContent={this.props.task.content}
+              initialProgress={this.props.task.progress}
+              onSubmitForm={(values) =>
+                this.props.onSaveChanges(this.props.match.params.id, values)
+              }
+            />
+          </Jumbotron>
         </React.Fragment>
       );
     }

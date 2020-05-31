@@ -40,6 +40,7 @@ const LogInForm = (props) => {
           onBlur={formik.handleBlur}
           value={formik.values.email}
         />
+
         {formik.touched.email && formik.errors.email ? (
           <div className={classes.error + " col-12"}>{formik.errors.email}</div>
         ) : null}
