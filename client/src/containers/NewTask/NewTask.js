@@ -7,11 +7,13 @@ import classes from "./NewTask.module.css";
 import Backdrop from "../../components/UI/Backdrop/Backdrop";
 import NewTaskForm from "../../components/NewTask/NewTask";
 
+let history = createBrowserHistory();
+
 class NewTask extends Component {
   render() {
     let newTask = (
       <React.Fragment>
-        <Backdrop show={true} />
+        <Backdrop show onClick={() => history.goBack()} />
         <div className={classes.NewTask}>
           <NewTaskForm
             onSubmitForm={(values) => this.props.onNewTask(values)}

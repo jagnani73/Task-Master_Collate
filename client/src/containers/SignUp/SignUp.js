@@ -5,8 +5,6 @@ import { createBrowserHistory } from "history";
 import SignInForm from "../../components/SignUpForm/SignUpForm";
 import Jumbotron from "../../components/UI/Jumbotron/Jumbotron";
 
-import classes from "./SignUp.module.css";
-
 class SignUp extends Component {
   render() {
     return (

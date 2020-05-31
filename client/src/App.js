@@ -10,7 +10,7 @@ import SingleTask from "./containers/SingleTask/SingleTask";
 import NavigationItems from "./components/NavigationItems/NavigationItems";
 import WelcomePage from "./components/WelcomePage/WelcomePage";
 import NotFoundPage from "./components/404/404";
-import Unauthorised from "./components/Unauthorised/Unauthorised";
+import Unauthorised from "./components/403/403";
 import LogIn from "./containers/LogIn/LogIn";
 import SignUp from "./containers/SignUp/SignUp";
 

@@ -14,7 +14,6 @@ const SignupForm = (props) => {
       password: "",
       confirmPassword: "",
     },
-
     validationSchema: Yup.object({
       name: Yup.string()
         .min(2, "Must be atleast 2 characters")

@@ -1,7 +1,10 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Button } from "reactstrap";
 import { createBrowserHistory } from "history";
+
+import classes from "./NewTask.module.css";
 
 const LogInForm = (props) => {
   const formik = useFormik({
@@ -22,63 +25,91 @@ const LogInForm = (props) => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="title">Title</label>
-      <input
-        id="title"
-        name="title"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.title}
-      />
-      {formik.touched.title && formik.errors.title ? (
-        <div>{formik.errors.title}</div>
-      ) : null}
+    <React.Fragment>
+      <h1 className="col-12 text-center"> New Task </h1>
+      <form onSubmit={formik.handleSubmit} className="mx-auto col-12 col-lg-8">
+        <label htmlFor="title" className={classes.label_title}>
+          Title
+        </label>
+        <input
+          id="title"
+          name="title"
+          type="text"
+          className={classes.title + " col-11"}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.title}
+        />
+        {formik.touched.title && formik.errors.title ? (
+          <div className={classes.error + " col-12"}>{formik.errors.title}</div>
+        ) : null}
 
-      <br />
+        <br />
 
-      <label htmlFor="content">Content</label>
-      <textarea
-        id="content"
-        name="content"
-        type="text"
-        rows="7"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.content}
-      />
-      {formik.touched.content && formik.errors.content ? (
-        <div>{formik.errors.content}</div>
-      ) : null}
+        <label htmlFor="content" className={classes.label_content}>
+          Content
+        </label>
+        <textarea
+          id="content"
+          name="content"
+          type="text"
+          rows="7"
+          className={classes.content + " col-11"}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.content}
+        />
+        {formik.touched.content && formik.errors.content ? (
+          <div className={classes.error + " col-12"}>
+            {formik.errors.content}
+          </div>
+        ) : null}
 
-      <br />
+        <br />
 
-      <label htmlFor="progress">Progress</label>
-      <input
-        id="progress"
-        name="progress"
-        type="range"
-        min="1"
-        max="100"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.progress}
-      />
-      <p>{formik.values.progress}%</p>
+        <label htmlFor="progress" className={classes.label_progress}>
+          Progress
+        </label>
+        <div className="text-center">
+          <input
+            id="progress"
+            name="progress"
+            type="range"
+            min="0"
+            max="100"
+            className={classes.progress + " col-11 mx-auto"}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.progress}
+          />
+          <p className={classes.progressPercentage}>
+            {formik.values.progress}%
+          </p>
+        </div>
 
-      <br />
+        <br />
 
-      <button
-        onClick={() => {
-          let history = createBrowserHistory();
-          history.goBack();
-        }}
-      >
-        Cancel
-      </button>
-      <button type="submit">Submit</button>
-    </form>
+        <div className="col-12 text-center">
+          <Button
+            className={classes.btn + " col-6"}
+            color="warning"
+            onClick={() => {
+              let history = createBrowserHistory();
+              history.goBack();
+            }}
+          >
+            CANCEL
+          </Button>
+          <Button
+            type="submit"
+            className={classes.btn + " col-6"}
+            color="success"
+          >
+            ADD
+          </Button>
+        </div>
+      </form>
+    </React.Fragment>
   );
 };
 

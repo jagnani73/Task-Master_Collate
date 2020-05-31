@@ -19,3 +19,13 @@
   font-size: 18px;
   height: auto;
 }
+
+.completed {
+  font-weight: bold;
+  color: whitesmoke;
+  background-color: green;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  width: 90%;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
+import { Button } from "reactstrap";
 import { createBrowserHistory } from "history";
 
 import classes from "./Tasks.module.css";
@@ -50,17 +51,28 @@ class Tasks extends Component {
     return (
       <div className={classes.Tasks}>
         {this.props.tasksArray.length === 0 ? null : (
-          <h1 className="col-12 text-center">All your tasks (-:</h1>
+          <h1 className="col-12 text-center">
+            All your tasks{" "}
+            <span role="img" aria-label="hourglass">
+              ⌛
+            </span>
+          </h1>
         )}
         {tasksLoader}
         {noTasks}
-        <button
-          onClick={() => {
-            this.props.onLogout();
-          }}
-        >
-          Logout
-        </button>
+        <div className="col-12 mx-auto text-center">
+          <Button
+            outline
+            color="danger"
+            size="lg"
+            className={classes.btn}
+            onClick={() => {
+              this.props.onLogout();
+            }}
+          >
+            LOGOUT
+          </Button>
+        </div>
       </div>
     );
   }

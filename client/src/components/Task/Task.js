@@ -5,7 +5,6 @@ import {
   Button,
   Jumbotron,
   Collapse,
-  CardTitle,
   CardBody,
   Card,
   Progress,
@@ -54,7 +53,7 @@ const Task = (props) => {
             <div className="text-center">
               <div>
                 {props.progress === 100 ? (
-                  <p>COMPLETED</p>
+                  <p className={classes.completed}>COMPLETED</p>
                 ) : (
                   <React.Fragment>
                     <Progress

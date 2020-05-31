@@ -5,8 +5,6 @@ import { createBrowserHistory } from "history";
 import LogInForm from "../../components/LogInForm/LogInForm";
 import Jumbotron from "../../components/UI/Jumbotron/Jumbotron";
 
-import classes from "./LogIn.module.css";
-
 class Login extends Component {
   render() {
     return (
