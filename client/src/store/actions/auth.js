@@ -12,6 +12,7 @@ export const register = (name, email, password) => {
       .then((res) => {
         if (res.data.status === "OK") {
           alert("User Registered. Please login once!");
+          window.location.reload(false);
         }
       })
       .catch((err) => {
