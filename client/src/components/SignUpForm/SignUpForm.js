@@ -20,11 +20,11 @@ const SignupForm = (props) => {
         .required("Email Address is Required"),
       password: Yup.string()
         .required("No password provided.")
-        .min(8, "Password is too short - should be 8 chars minimum."),
-      // .matches(
-      //   /[a-z]/ && /[A-Z]/ && /[0-9]/ && /[!@#$%^*]/,
-      //   "Password should have atleast one Uppercase, one Lowercase, one Number and one Symbol."
-      // ),
+        .min(8, "Password is too short - should be 8 chars minimum.")
+        .matches(
+          /[a-z]/ && /[A-Z]/ && /[0-9]/ && /[!@#$%^*]/,
+          "Password should have atleast one Uppercase, one Lowercase, one Number and one Symbol."
+        ),
       confirmPassword: Yup.string().oneOf(
         [Yup.ref("password"), null],
         "Passwords must match"

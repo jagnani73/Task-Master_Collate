@@ -14,8 +14,13 @@ const NavigationItems = (props) => {
         <NavbarBrand href="/">reactstrap</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavigationItem href="/home" pageName="Homee" />
+          <Nav className="mx-auto" navbar>
+            <NavigationItem
+              href="/tasks"
+              pageName="TASKS"
+              className="text-center"
+            />
+            <NavigationItem href="/tasks/new-task" pageName="ADD NEW" />
           </Nav>
         </Collapse>
       </Navbar>

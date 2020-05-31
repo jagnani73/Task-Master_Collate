@@ -14,17 +14,11 @@ const reducer = (state = initialState, action) => {
       };
 
     case actionType.CHECK_LOGIN:
-      if (localStorage.getItem("authToken")) {
-        return {
-          ...state,
-          isAuth: true,
-        };
-      } else {
-        return {
-          ...state,
-          isAuth: false,
-        };
-      }
+      return {
+        ...state,
+        isAuth: true,
+      };
+
     case actionType.LOGOUT:
       localStorage.removeItem("authToken");
       alert("You are about to be logged out");

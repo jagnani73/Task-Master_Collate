@@ -4,29 +4,60 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "./store/actions/index";
 
-import LogIn from "./containers/LogIn/LogIn";
-import SignUp from "./containers/SignUp/SignUp";
+import Tasks from "./containers/Tasks/Tasks";
+import NewTask from "./containers/NewTask/NewTask";
+import SingleTask from "./containers/SingleTask/SingleTask";
+import NavigationItems from "./components/NavigationItems/NavigationItems";
 import WelcomePage from "./components/WelcomePage/WelcomePage";
 import NotFoundPage from "./components/404/404";
-import NavigationItems from "./components/NavigationItems/NavigationItems";
+import Unauthorised from "./components/Unauthorised/Unauthorised";
+import LogIn from "./containers/LogIn/LogIn";
+import SignUp from "./containers/SignUp/SignUp";
 
 class App extends Component {
   componentWillMount() {
-    this.props.onCheckLogin();
+    if (localStorage.getItem("authToken")) {
+      this.props.onCheckLogin();
+    }
   }
-
   render() {
     let routes = (
       <React.Fragment>
-        {this.props.isAuth ? <NavigationItems /> : null}
         <Switch>
+          <Route path="/" exact component={WelcomePage} />
           <Route path="/sign-up" exact component={SignUp} />
           <Route path="/log-in" exact component={LogIn} />
-          <Route path="/" exact component={WelcomePage} />
+          <Route exact path="/tasks/task/:id" component={Unauthorised} />
+          <Route exact path="/tasks/new-task" component={Unauthorised} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
+        <Route exact path="/tasks">
+          <Redirect to="/" />
+        </Route>
       </React.Fragment>
     );
+
+    if (this.props.isAuth) {
+      routes = (
+        <React.Fragment>
+          <NavigationItems />
+
+          <Switch>
+            <Route path="/tasks/task/:id" component={SingleTask} />
+            <Route path="/tasks/new-task">
+              <NewTask />
+              <Tasks />
+            </Route>
+            <Route path="/tasks" exact component={Tasks} />
+            <Route path="*" component={NotFoundPage} />
+          </Switch>
+
+          <Route exact path="/">
+            <Redirect to="/tasks" />
+          </Route>
+        </React.Fragment>
+      );
+    }
 
     return <React.Fragment>{routes}</React.Fragment>;
   }

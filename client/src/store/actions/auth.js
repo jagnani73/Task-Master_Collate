@@ -2,7 +2,6 @@ import axios from "axios";
 import * as actionTypes from "./actionTypes";
 
 export const register = (name, email, password) => {
-  console.log(name, email, password);
   return (dispatch) => {
     axios
       .post("/api/auth/register", {

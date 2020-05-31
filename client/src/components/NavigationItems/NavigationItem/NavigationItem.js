@@ -8,7 +8,11 @@ const NavigationItem = (props) => {
   return (
     <React.Fragment>
       <NavItem>
-        <NavLink to={props.href} activeClassName={classes.active}>
+        <NavLink
+          to={props.href}
+          activeClassName={classes.active}
+          className={classes.links}
+        >
           {props.pageName}
         </NavLink>
       </NavItem>
