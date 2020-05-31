@@ -45,6 +45,7 @@ There is a fully functioning CRUD for the notes.
 - Google ReCaptcha
 - Better data visualisation
 - Sorting data on different criteria
+- Total progress based on the aggregate of all the tasks under a user
 
 ## Project Contributors:
 
