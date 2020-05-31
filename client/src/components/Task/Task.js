@@ -34,10 +34,10 @@ const Task = (props) => {
     <React.Fragment>
       <Jumbotron className={classes.Task}>
         <div className="row col-12">
-          <div className="text-left col-6">
+          <div className="text-center text-lg-left col-lg-6 col-12">
             <h5 className={classes.TaskTitle}>{props.title}</h5>
           </div>
-          <div className="text-right col-6">
+          <div className="text-center text-lg-right col-lg-6 col-12 my-3">
             <Button color="primary" outline onClick={toggle}>
               <Icon icon={plusSquare} size={28} />
             </Button>
@@ -69,23 +69,23 @@ const Task = (props) => {
           </Card>
         </Collapse>
         <div className="row">
-          <div className="col-3"></div>
+          <div className="col-lg-3"></div>
           <Button
             onClick={props.removeClicked}
-            className="col-2 mt-3"
+            className="col-lg-2 mt-3"
             color="danger"
           >
             REMOVE
           </Button>
-          <div className="col-2"></div>
+          <div className="col-lg-2"></div>
           <Button
             onClick={props.editClicked}
-            className="col-2 mt-3"
+            className="col-lg-2 mt-3"
             color="info"
           >
             EDIT
           </Button>
-          <div className="col-3"></div>
+          <div className="col-lg-3"></div>
         </div>
       </Jumbotron>
     </React.Fragment>
