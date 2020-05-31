@@ -49,9 +49,6 @@ const mapStateToProps = (state) => {
       title: state.singleTask.title,
       content: state.singleTask.content,
       progress: state.singleTask.progress,
-      author: state.singleTask.author,
-      updatedAt: state.singleTask.updatedAt,
-      createdAt: state.singleTask.createdAt,
     },
     loading: state.singleTask.loading,
   };

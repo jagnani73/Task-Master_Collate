@@ -12,6 +12,7 @@ const LogInForm = (props) => {
       title: "",
       content: "",
       progress: 0,
+      deadline: null,
     },
     validationSchema: Yup.object({
       title: Yup.string().required("No Title provided."),
@@ -42,9 +43,7 @@ const LogInForm = (props) => {
         {formik.touched.title && formik.errors.title ? (
           <div className={classes.error + " col-12"}>{formik.errors.title}</div>
         ) : null}
-
         <br />
-
         <label htmlFor="content" className={classes.label_content}>
           Content
         </label>
@@ -58,6 +57,7 @@ const LogInForm = (props) => {
           onBlur={formik.handleBlur}
           value={formik.values.content}
         />
+
         {formik.touched.content && formik.errors.content ? (
           <div className={classes.error + " col-12"}>
             {formik.errors.content}
@@ -87,6 +87,21 @@ const LogInForm = (props) => {
         </div>
 
         <br />
+
+        <label htmlFor="deadline" className={classes.label_deadline}>
+          Deadline Date
+        </label>
+        <div className="text-center">
+          <input
+            id="deadline"
+            name="deadline"
+            type="date"
+            className={classes.deadline + " col-11 mx-auto"}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.deadline}
+          />
+        </div>
 
         <div className="col-12 text-center">
           <Button

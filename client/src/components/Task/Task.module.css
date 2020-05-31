@@ -29,3 +29,8 @@
   border-radius: 50px;
   width: 90%;
 }
+
+.deadline {
+  color: red;
+  font-weight: bold;
+}

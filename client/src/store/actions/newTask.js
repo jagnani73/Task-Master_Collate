@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { createBrowserHistory } from "history";
 
-export const newTask = (title, content, progress) => {
+export const newTask = (title, content, progress, deadline) => {
   let token = localStorage.getItem("authToken");
   return () => {
     axios
@@ -12,6 +12,7 @@ export const newTask = (title, content, progress) => {
           title,
           content,
           progress,
+          deadline,
         },
         { headers: { Authorization: `Bearer ${token}` } }
       )

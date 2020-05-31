@@ -62,12 +62,14 @@ const Task = (props) => {
                       color={progressColor}
                     />
                     <p>{props.progress} %</p>
+                    <p>{props.createdAt}</p>
                   </React.Fragment>
                 )}
               </div>
             </div>
           </Card>
         </Collapse>
+        <div className={classes.deadline}>Due: {props.deadline}</div>
         <div className="row">
           <div className="col-lg-3"></div>
           <Button

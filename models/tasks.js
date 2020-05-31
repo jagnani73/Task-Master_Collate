@@ -20,6 +20,10 @@ const taskSchema = new Schema(
       type: Number,
       required: true,
     },
+    deadline: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
 );

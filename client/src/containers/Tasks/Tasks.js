@@ -33,6 +33,8 @@ class Tasks extends Component {
           title={task.title}
           content={task.content}
           progress={task.progress}
+          deadline={task.deadline}
+          createdAt={task.createdAt}
           removeClicked={() => this.props.onDeleteTask(task._id, index)}
           editClicked={() => this.onTaskOpened(task._id)}
         />

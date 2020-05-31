@@ -10,6 +10,7 @@ exports.addTask = async (req, res, next) => {
       author: new ObjectId(res.locals.user._id),
       content: req.body.content,
       progress: req.body.progress,
+      deadline: req.body.deadline,
     });
     const resultTask = await newTask.save();
     user.tasks.push(new ObjectId(resultTask._id));

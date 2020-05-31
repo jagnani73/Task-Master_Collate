@@ -29,7 +29,14 @@ const mapDispatchToProps = (dispath) => {
   let history = createBrowserHistory();
   return {
     onNewTask: (values) => {
-      dispath(actions.newTask(values.title, values.content, values.progress));
+      dispath(
+        actions.newTask(
+          values.title,
+          values.content,
+          values.progress,
+          values.deadline
+        )
+      );
       history.push({ pathname: "/tasks" });
     },
   };

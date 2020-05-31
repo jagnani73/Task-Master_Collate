@@ -7,6 +7,7 @@ const initialState = {
   updatedAt: null,
   createdAt: null,
   progress: null,
+  deadline: null,
   loading: true,
 };
 const reducer = (state = initialState, action) => {
@@ -18,6 +19,7 @@ const reducer = (state = initialState, action) => {
         content: action.data.content,
         author: action.data.author.name,
         progress: action.data.progress,
+        deadline: action.data.deadline,
         updatedAt: action.data.updatedAt,
         createdAt: action.data.createdAt,
         loading: false,
