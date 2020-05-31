@@ -6,19 +6,21 @@ import { createBrowserHistory } from "history";
 export const fetchTasks = () => {
   return (dispatch) => {
     let token = localStorage.getItem("authToken");
-    axios
-      .get("/api/tasks", { headers: { Authorization: `Bearer ${token}` } })
-      .then((res) => {
-        dispatch(setTasks(res.data.data));
-      })
-      .catch((err) => {
-        if (err) {
-          let history = createBrowserHistory();
-          history.go({
-            pathname: "/error/500",
-          });
-        }
-      });
+    setInterval(() => {
+      axios
+        .get("/api/tasks", { headers: { Authorization: `Bearer ${token}` } })
+        .then((res) => {
+          dispatch(setTasks(res.data.data));
+        })
+        .catch((err) => {
+          if (err) {
+            let history = createBrowserHistory();
+            history.go({
+              pathname: "/error/500",
+            });
+          }
+        });
+    }, 500);
   };
 };
 

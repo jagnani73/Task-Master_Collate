@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 import { createBrowserHistory } from "history";
 import SignInForm from "../../components/SignUpForm/SignUpForm";
+import Jumbotron from "../../components/UI/Jumbotron/Jumbotron";
 
 import classes from "./SignUp.module.css";
 
@@ -10,9 +11,14 @@ class SignUp extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1 className={classes.title + " col-6"}> Sign Up! </h1>
-        {this.props.showError ? <div>{this.props.showError}</div> : null}
-        <SignInForm onSubmitForm={(values) => this.props.onRegister(values)} />
+        <Jumbotron>
+          <SignInForm
+            onSubmitForm={(values) => this.props.onRegister(values)}
+            errorMessage={
+              this.props.showError ? <div>{this.props.showError}</div> : null
+            }
+          />
+        </Jumbotron>
       </React.Fragment>
     );
   }

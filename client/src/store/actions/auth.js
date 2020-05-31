@@ -16,7 +16,6 @@ export const register = (name, email, password) => {
       })
       .catch((err) => {
         if (err.response.data.error === "User is already registered!") {
-          alert("User is already registered!");
           let errMessage =
             "User has already registered with the email. Try with other email.";
           dispatch(showError(errMessage));
@@ -39,12 +38,12 @@ export const login = (email, password) => {
       .then((res) => {
         if (res.data.status === "OK") {
           localStorage.setItem("authToken", res.data.authToken);
+          window.location.reload(false);
           dispatch(afterlogin());
         }
       })
       .catch((err) => {
         if (err.response.data.error === "Username or Password Wrong!") {
-          alert("Invalid Credentials. Please try again.");
           let errMessage = "Invalid Credentials. Please try again.";
           dispatch(showError(errMessage));
         } else {

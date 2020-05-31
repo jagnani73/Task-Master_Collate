@@ -15,6 +15,11 @@ export const newTask = (title, content, progress) => {
         },
         { headers: { Authorization: `Bearer ${token}` } }
       )
+      .then(() => {
+        let history = createBrowserHistory();
+        history.push("/tasks");
+        window.location.reload(false);
+      })
       .catch((err) => {
         if (err) {
           let history = createBrowserHistory();

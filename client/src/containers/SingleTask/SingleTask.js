@@ -25,14 +25,16 @@ class SingleTask extends Component {
     let taskLoader = <Spinner />;
     if (!this.props.loading) {
       taskLoader = (
-        <SingleTaskForm
-          initialTitle={this.props.task.title}
-          initialContent={this.props.task.content}
-          initialProgress={this.props.task.progress}
-          onSubmitForm={(values) =>
-            this.props.onSaveChanges(this.props.match.params.id, values)
-          }
-        />
+        <React.Fragment>
+          <SingleTaskForm
+            initialTitle={this.props.task.title}
+            initialContent={this.props.task.content}
+            initialProgress={this.props.task.progress}
+            onSubmitForm={(values) =>
+              this.props.onSaveChanges(this.props.match.params.id, values)
+            }
+          />
+        </React.Fragment>
       );
     }
 

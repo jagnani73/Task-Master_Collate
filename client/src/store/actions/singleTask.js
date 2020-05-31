@@ -66,6 +66,11 @@ export const saveTask = (id, title, content, progress) => {
         },
         { headers: { Authorization: `Bearer ${token}` } }
       )
+      .then(() => {
+        let history = createBrowserHistory();
+        history.push("/tasks");
+        window.location.reload(false);
+      })
       .catch((err) => console.log(err));
   };
 };

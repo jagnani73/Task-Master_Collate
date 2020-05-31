@@ -9,6 +9,10 @@ import Spinner from "../../components/UI/Spinner/Spinner";
 
 class Tasks extends Component {
   componentWillMount() {
+    let expirationTime = localStorage.getItem("authTokenExpiration");
+    let currentTime = new Date().getTime();
+    let forcedLogout = expirationTime - currentTime;
+    setTimeout(() => this.props.onLogout(), forcedLogout);
     this.props.onFetchTasks();
   }
 
@@ -28,13 +32,7 @@ class Tasks extends Component {
           key={task._id}
           title={task.title}
           content={task.content}
-          progress={
-            task.progress === 0
-              ? "Yet To Begin"
-              : task.progress === 100
-              ? "Completed"
-              : task.progress + " %"
-          }
+          progress={task.progress}
           removeClicked={() => this.props.onDeleteTask(task._id, index)}
           editClicked={() => this.onTaskOpened(task._id)}
         />

@@ -1,6 +1,16 @@
 .links {
   margin: auto 100px;
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.links:hover {
+  text-decoration: none;
+  color: whitesmoke;
+  border-bottom: 3px solid #ccc;
 }
 
 .active {
+  font-weight: bold;
+  border-bottom: 3px solid #ccc;
 }
