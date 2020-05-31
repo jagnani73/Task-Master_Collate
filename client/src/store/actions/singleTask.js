@@ -24,7 +24,6 @@ export const fetchTask = (id) => {
 };
 
 export const setTask = (data) => {
-  console.log(data);
   return {
     type: actionTypes.SET_TASK,
     data,
@@ -52,7 +51,6 @@ export const editContent = (content) => {
 };
 
 export const saveTask = (id, title, content, progress) => {
-  console.log(id, title, content, progress);
   let token = localStorage.getItem("authToken");
   return () => {
     axios

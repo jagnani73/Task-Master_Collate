@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav } from "reactstrap";
+import logo from "../../assets/images/logo.png";
 
 import NavigationItem from "./NavigationItem/NavigationItem";
 
@@ -11,7 +12,9 @@ const NavigationItems = (props) => {
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/">TaskMaster</NavbarBrand>
+        <NavbarBrand href="/">
+          <img src={logo} alt="logo" width="55px" /> TaskMaster
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mx-auto" navbar>

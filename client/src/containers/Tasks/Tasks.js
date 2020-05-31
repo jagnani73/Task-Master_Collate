@@ -18,7 +18,6 @@ class Tasks extends Component {
   }
 
   onTaskOpened = (id) => {
-    console.log(id, this.props);
     this.props.history.push({
       pathname: this.props.location.pathname + "/task/" + id,
     });

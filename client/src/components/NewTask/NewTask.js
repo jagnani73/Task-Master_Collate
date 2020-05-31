@@ -20,7 +20,6 @@ const LogInForm = (props) => {
 
     onSubmit: (values) => {
       props.onSubmitForm(values);
-      console.log(values);
     },
   });
 

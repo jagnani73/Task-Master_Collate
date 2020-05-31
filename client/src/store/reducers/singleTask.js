@@ -12,7 +12,6 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.SET_TASK:
-      console.log(action.data);
       return {
         ...state,
         title: action.data.title,

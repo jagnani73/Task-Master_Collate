@@ -30,7 +30,6 @@ const reducer = (state = initialState, action) => {
       };
 
     case actionType.SHOW_ERROR:
-      console.log(action.error);
       return {
         ...state,
         showError: action.error,
