@@ -7,7 +7,7 @@ import classes from "./NavigationItem.module.css";
 const NavigationItem = (props) => {
   return (
     <React.Fragment>
-      <NavItem>
+      <NavItem className={classes.liNavItem}>
         <NavLink
           to={props.href}
           activeClassName={classes.active}

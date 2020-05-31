@@ -20,9 +20,9 @@ app.use(express.static(path.join(__dirname, "./client/build")));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", verifyUser, tasksRoutes);
-// app.get("/*", (req, res, next) => {
-//   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
-// });
+app.get("/*", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "./client/build", "index.html"));
+});
 
 mongoose
   .connect(process.env.MONGO_URI)
