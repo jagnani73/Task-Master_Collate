@@ -9,7 +9,7 @@
 ### Description:
 
 This is a **MERN-Stack Web-Application** deployed on **Heroku**. It was built as the selection task for [_Collate_](https://collate.co.in/). It is an application that tracks your progress for the corresponding tasks that you have created in it. The application has user authentication. There is a visualised display of the progress of each task. Each task has a _Title, Content, Progress, CreatedAt, EditedAt_.
-There a fuly functioning CRUD for the notes.
+There is a fully functioning CRUD for the notes.
 
 ---
 
