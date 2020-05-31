@@ -43,6 +43,7 @@ There is a fully functioning CRUD for the notes.
 - Animations
 - Show Password
 - Google ReCaptcha
+- Email verification
 - Better data visualisation
 - Sorting data on different criteria
 - Total progress based on the aggregate of all the tasks under a user
