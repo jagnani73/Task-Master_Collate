@@ -1,0 +1,16 @@
+.title {
+  text-align: center;
+}
+
+a.link {
+  color: darkslategray;
+  text-decoration: none;
+  margin: 20px;
+  text-align: center;
+}
+
+a.link:hover {
+  font-weight: bold;
+  color: darkcyan;
+  text-decoration: none;
+}
